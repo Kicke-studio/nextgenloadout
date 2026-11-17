@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-pt-32">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Leonida Loadout — #1 Next-Gen Console Storage &amp; Hardware Readiness Hub</title>
+  <meta name="description" content="Will the 210GB+ launch install fit on your PS5 or Xbox Series X|S? Run the free storage diagnostic, then grab verified SSDs, pro controllers and 1-click Amazon launch kits." />
+  <meta name="theme-color" content="#07070C" />
+  <meta name="color-scheme" content="dark" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Leonida Loadout — Don't Get Busted With 'Storage Full' on Launch Night" />
+  <meta property="og:description" content="Free console storage diagnostic + verified PS5 & Xbox Series X|S storage, controllers and 1-click Amazon launch kits." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FF1E74'/%3E%3Cstop offset='.5' stop-color='%23FF6B00'/%3E%3Cstop offset='1' stop-color='%237928CA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2307070C'/%3E%3Cpath fill='url(%23g)' d='M32 8l6.5 15.2 16.5 1.4-12.5 10.9 3.8 16.1L32 43l-14.3 8.6 3.8-16.1L9 24.6l16.5-1.4z'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Chakra+Petch:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            asphalt: '#07070C',
+            hud: '#11111A',
+            line: '#242436',
+            vpink: '#FF1E74',
+            vorange: '#FF6B00',
+            vviolet: '#7928CA',
+            neon: '#00F0FF',
+            gold: '#FFB800',
+          },
+          fontFamily: {
+            display: ['Anton', '"Bebas Neue"', 'Impact', 'sans-serif'],
+            hud: ['"Chakra Petch"', 'ui-monospace', 'monospace'],
+            body: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root {
+      --pink: #FF1E74; --orange: #FF6B00; --violet: #7928CA;
+      --cyan: #00F0FF; --gold: #FFB800; --line: #242436; --hud: #11111A;
+      --vice: linear-gradient(100deg, #FF1E74 0%, #FF6B00 50%, #7928CA 100%);
+    }
+    html { background: #07070C; -webkit-text-size-adjust: 100%; }
+    [hidden] { display: none !important; }
+    html, body { overflow-x: clip; max-width: 100%; }
+    body { -webkit-tap-highlight-color: transparent; }
+    @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+    [id] { scroll-margin-top: 128px; }
+
+    .font-display { letter-spacing: 0.02em; }
+    .vice-gradient { background-image: var(--vice); }
+    .vice-text { background-image: var(--vice); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    /* Elevated HUD card surface: #11111A + glass + 1px #242436 border */
+    .hud-card {
+      background: linear-gradient(rgba(255,255,255,.03), rgba(255,255,255,.03)), rgba(17,17,26,.86);
+      border: 1px solid var(--line);
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    }
+
+    /* Glowing Vice gradient border (Tier 2) */
+    .vice-border {
+      border: 2px solid transparent;
+      background: linear-gradient(#11111A, #11111A) padding-box, linear-gradient(130deg, #FF1E74, #FF6B00 50%, #7928CA) border-box;
+      box-shadow: 0 0 46px -12px rgba(255,30,116,.65), 0 0 90px -30px rgba(255,107,0,.55);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .vice-border { animation: vglow 3.2s ease-in-out infinite; }
+      @keyframes vglow { 50% { box-shadow: 0 0 60px -10px rgba(255,30,116,.8), 0 0 120px -30px rgba(121,40,202,.7); } }
+    }
+
+    .star-glow { color: var(--gold); text-shadow: 0 0 8px rgba(255,184,0,.75), 0 0 18px rgba(255,107,0,.45); }
+    .spec-chip { font-family: 'Chakra Petch', monospace; color: var(--cyan); border: 1px solid rgba(0,240,255,.32); background: rgba(0,240,255,.06); }
+
+    /* Segmented console toggle */
+    .seg-btn[aria-pressed="true"] { background-image: var(--vice); color: #fff; box-shadow: 0 0 18px -4px rgba(255,30,116,.7); }
+    .seg-btn:focus-visible, a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+    /* Category bar */
+    .no-scrollbar { scrollbar-width: none; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .cat-link[aria-current="true"] { color: #fff; border-color: var(--pink); background: rgba(255,30,116,.12); }
+
+    /* Hero retro sunset + grid */
+    .retro-grid {
+      position: absolute; left: -50%; right: -50%; bottom: 0; height: 48%;
+      background-image: linear-gradient(rgba(255,30,116,.45) 1px, transparent 1px), linear-gradient(90deg, rgba(255,30,116,.35) 1px, transparent 1px);
+      background-size: 56px 56px;
+      transform: perspective(320px) rotateX(64deg); transform-origin: center top;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 25%, #000 60%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 25%, #000 60%, transparent 100%);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .retro-grid { animation: gridmove 2.4s linear infinite; }
+      @keyframes gridmove { to { background-position: 0 56px, 0 0; } }
+    }
+
+    /* Storage bar */
+    .bar-seg { transition: width .9s cubic-bezier(.2,.8,.2,1); height: 100%; }
+    .stripes { background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.10) 0 6px, transparent 6px 12px); }
+    .overflow-stripes { background-image: repeating-linear-gradient(135deg, #FF2D55 0 6px, #7a0a24 6px 12px); }
+
+    /* Filter transitions */
+    .swap-zone { transition: opacity .18s ease, transform .18s ease; }
+    .swap-zone.is-switching { opacity: 0; transform: translateY(6px); }
+    @media (prefers-reduced-motion: reduce) { .swap-zone, .bar-seg { transition: none; } }
+
+    .flash-ring { animation: flash 1.8s ease-out 1; }
+    @keyframes flash { 0%,40% { box-shadow: 0 0 0 3px var(--cyan), 0 0 40px rgba(0,240,255,.5); } 100% { box-shadow: 0 0 0 0 transparent; } }
+
+    input[type="checkbox"].kit-check { accent-color: var(--pink); width: 22px; height: 22px; flex-shrink: 0; cursor: pointer; }
+    input[type="range"] { accent-color: var(--pink); }
+
+    /* ---------- FAQ accordion (native <details>) ---------- */
+    .faq details { border: 1px solid var(--line); border-radius: 1rem; background: rgba(17,17,26,.86); }
+    .faq summary {
+      list-style: none; display: flex; align-items: center; gap: .75ch;
+      padding: 1.1rem 1.25rem; cursor: pointer; font-weight: 700; min-height: 56px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::before {
+      content: ""; inline-size: 1.1em; block-size: 1.1em; flex-shrink: 0; background-color: var(--pink);
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+      rotate: -90deg;
+    }
+    .faq details[open] > summary::before { rotate: 0deg; }
+    .faq details::details-content { interpolate-size: allow-keywords; overflow: clip; contain: layout; }
+    .faq details:not([open])::details-content { block-size: 0; }
+    @media (prefers-reduced-motion: no-preference) {
+      .faq summary::before { transition: rotate .2s; }
+      .faq details::details-content {
+        transition: block-size, content-visibility, display;
+        transition-duration: .3s; transition-timing-function: ease-in-out; transition-behavior: allow-discrete;
+      }
+    }
+
+    /* ---------- Responsive comparison table ---------- */
+    .table-wrapper { overflow: auto; max-inline-size: 100%; container-type: inline-size; border: 1px solid var(--line); border-radius: 1rem; }
+    .cmp-table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 860px; font-size: .9rem; }
+    .cmp-table caption { text-align: left; padding: 1rem 1.25rem; font-family: 'Chakra Petch', monospace; color: var(--cyan); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+    .cmp-table thead { position: sticky; inset-block-start: 0; z-index: 1; }
+    .cmp-table thead th { background: #161622; font-family: 'Chakra Petch', monospace; text-transform: uppercase; font-size: .72rem; letter-spacing: .08em; color: #a1a1b5; text-align: left; padding: .85rem 1rem; border-bottom: 1px solid var(--line); }
+    .cmp-table tbody th { position: sticky; inset-inline-start: 0; background: #11111A; text-align: left; padding: 1rem; font-weight: 800; border-bottom: 1px solid var(--line); min-width: 180px; }
+    .cmp-table td { padding: 1rem; border-bottom: 1px solid var(--line); color: #d4d4e0; vertical-align: top; }
+    .cmp-table tr.bad th, .cmp-table tr.bad td { background: rgba(255,45,85,.06); }
+    @container (width < 640px) {
+      .cmp-table { min-width: 0; }
+      .cmp-table, .cmp-table thead, .cmp-table tbody, .cmp-table tr, .cmp-table th, .cmp-table td { display: block; }
+      .cmp-table thead { display: none; }
+      .cmp-table tr { margin: 0 .75rem 1rem; border: 1px solid var(--line); border-radius: .9rem; overflow: hidden; }
+      .cmp-table tbody th { position: sticky; inset-block-start: 0; z-index: 2; background: #1a1a28; }
+      .cmp-table td { border-bottom: 1px solid rgba(36,36,54,.7); padding: .7rem 1rem; }
+      .cmp-table td::before { display: block; font-family: 'Chakra Petch', monospace; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: #8a8aa3; margin-bottom: .15rem; }
+      .cmp-table td:nth-child(2)::before { content: "Interface"; }
+      .cmp-table td:nth-child(3)::before { content: "Speed Requirement"; }
+      .cmp-table td:nth-child(4)::before { content: "Heatsink"; }
+      .cmp-table td:nth-child(5)::before { content: "Plays Next-Gen Games?"; }
+      .cmp-table td:nth-child(6)::before { content: "Installation"; }
+      .cmp-table td:nth-child(7)::before { content: "Our Verified Pick"; }
+    }
+  </style>
+</head>
+
+<body id="top" class="bg-asphalt text-zinc-200 font-body antialiased selection:bg-vpink/40">
+
+  <!-- ===== SVG SPRITE (palm silhouettes) ===== -->
+  <svg width="0" height="0" class="absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="palm" viewBox="0 0 200 400">
+        <path d="M100 400 C102 330 96 262 108 192 C112 168 115 152 117 140 L124 141 C122 153 119 170 116 194 C106 264 112 330 115 400 Z" />
+        <path d="M120 140 C90 110 50 104 8 140 C45 118 82 122 120 147 Z" />
+        <path d="M120 140 C96 92 60 70 22 74 C60 86 92 106 118 147 Z" />
+        <path d="M120 140 C118 96 130 60 152 38 C139 70 131 102 124 143 Z" />
+        <path d="M120 140 C150 96 184 84 200 100 C176 100 151 116 124 147 Z" />
+        <path d="M120 140 C156 124 186 140 196 182 C175 156 150 146 122 149 Z" />
+        <path d="M120 142 C94 140 64 166 54 206 C74 172 98 156 122 149 Z" />
+        <path d="M122 142 C141 151 161 181 158 216 C148 186 135 166 120 151 Z" />
+        <circle cx="116" cy="150" r="5" /><circle cx="126" cy="152" r="5" /><circle cx="121" cy="158" r="4.5" />
+      </symbol>
+      <linearGradient id="sunGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#FFB800" />
+        <stop offset=".45" stop-color="#FF6B00" />
+        <stop offset="1" stop-color="#FF1E74" />
+      </linearGradient>
+      <mask id="sunStripes">
+        <rect width="400" height="400" fill="#fff" />
+        <rect y="232" width="400" height="7" fill="#000" />
+        <rect y="258" width="400" height="10" fill="#000" />
+        <rect y="286" width="400" height="13" fill="#000" />
+        <rect y="318" width="400" height="16" fill="#000" />
+        <rect y="352" width="400" height="20" fill="#000" />
+      </mask>
+    </defs>
+  </svg>
+
+  <!-- ===== TOP TRUST BAR ===== -->
+  <div class="vice-gradient text-white">
+    <p class="max-w-7xl mx-auto px-3 py-1.5 text-center font-hud font-semibold text-[10px] sm:text-xs tracking-[0.14em] leading-snug">
+      ⚡ LAUNCH READINESS HUB • VERIFIED PS5 &amp; XBOX SERIES X|S HARDWARE • DIRECT AMAZON PRIME CHECKOUT
+    </p>
+  </div>
+
+  <!-- ===== STICKY HUD HEADER ===== -->
+  <header class="sticky top-0 z-50 border-b border-line bg-asphalt/85 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 h-14 sm:h-16 flex items-center justify-between gap-3">
+      <a href="#top" class="flex flex-col leading-none shrink-0" aria-label="Leonida Loadout home">
+        <span class="star-glow text-[10px] sm:text-xs tracking-[0.2em]" aria-hidden="true">★★★★★★</span>
+        <span class="font-display text-[19px] sm:text-2xl text-white uppercase">Leonida <span class="vice-text">Loadout</span></span>
+      </a>
+
+      <div role="group" aria-label="Select your console" class="flex items-center p-1 rounded-full border border-line bg-hud/90 font-hud font-semibold text-xs sm:text-sm">
+        <button type="button" class="seg-btn rounded-full px-3 sm:px-4 min-h-[38px] text-zinc-300 transition" data-console="ps5" aria-pressed="false">PS5<span class="hidden md:inline">&nbsp;/ PS5 Slim</span></button>
+        <button type="button" class="seg-btn rounded-full px-3 sm:px-4 min-h-[38px] text-zinc-300 transition" data-console="xbox" aria-pressed="false">Xbox<span class="hidden md:inline">&nbsp;Series X|S</span></button>
+        <button type="button" class="seg-btn rounded-full px-3 sm:px-4 min-h-[38px] text-zinc-300 transition" data-console="all" aria-pressed="false">All<span class="hidden md:inline">&nbsp;Gear</span></button>
+      </div>
+    </div>
+
+    <nav aria-label="Page sections" class="border-t border-line/70">
+      <ul class="no-scrollbar max-w-7xl mx-auto px-4 py-2 flex gap-2 overflow-x-auto overscroll-x-contain font-hud text-xs sm:text-sm font-semibold whitespace-nowrap">
+        <li><a class="cat-link inline-flex items-center min-h-[36px] px-3 rounded-full border border-line text-zinc-300 hover:text-white transition" href="#kits">⭐ 3 Launch Kits</a></li>
+        <li><a class="cat-link inline-flex items-center min-h-[36px] px-3 rounded-full border border-line text-zinc-300 hover:text-white transition" href="#storage-test">📊 210GB Storage Test</a></li>
+        <li><a class="cat-link inline-flex items-center min-h-[36px] px-3 rounded-full border border-line text-zinc-300 hover:text-white transition" href="#ssd">💾 SSD &amp; Expansion</a></li>
+        <li><a class="cat-link inline-flex items-center min-h-[36px] px-3 rounded-full border border-line text-zinc-300 hover:text-white transition" href="#controllers">🎮 Pro Controllers</a></li>
+        <li><a class="cat-link inline-flex items-center min-h-[36px] px-3 rounded-full border border-line text-zinc-300 hover:text-white transition" href="#immersion">🌴 Vice Immersion</a></li>
+        <li><a class="cat-link inline-flex items-center min-h-[36px] px-3 rounded-full border border-line text-zinc-300 hover:text-white transition" href="#faq">❓ Compatibility FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="relative overflow-hidden isolate" aria-labelledby="hero-title">
+      <!-- Background art -->
+      <div class="absolute inset-0 -z-10" aria-hidden="true">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,rgba(255,30,116,.22),transparent_60%),radial-gradient(ellipse_at_80%_10%,rgba(121,40,202,.30),transparent_55%),linear-gradient(to_bottom,#0b0716,#07070C)]"></div>
+        <svg class="absolute left-1/2 top-[6%] -translate-x-1/2 w-[440px] sm:w-[620px] opacity-60 blur-[1px]" viewBox="0 0 400 400">
+          <circle cx="200" cy="200" r="180" fill="url(#sunGrad)" mask="url(#sunStripes)" />
+        </svg>
+        <div class="absolute left-1/2 top-[6%] -translate-x-1/2 w-[440px] h-[440px] sm:w-[620px] sm:h-[620px] rounded-full bg-vpink/25 blur-3xl"></div>
+        <div class="retro-grid"></div>
+        <svg class="absolute -left-10 bottom-0 h-[62%] sm:h-[78%] text-black/90" viewBox="0 0 200 400" fill="currentColor"><use href="#palm" /></svg>
+        <svg class="absolute left-16 sm:left-32 bottom-0 h-[42%] sm:h-[55%] text-black/80 -scale-x-100" viewBox="0 0 200 400" fill="currentColor"><use href="#palm" /></svg>
+        <svg class="absolute -right-12 bottom-0 h-[70%] sm:h-[85%] text-black/90 -scale-x-100" viewBox="0 0 200 400" fill="currentColor"><use href="#palm" /></svg>
+        <svg class="hidden sm:block absolute right-40 bottom-0 h-[45%] text-black/75" viewBox="0 0 200 400" fill="currentColor"><use href="#palm" /></svg>
+        <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-asphalt to-transparent"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 pt-10 pb-16 sm:pt-16 sm:pb-24 grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-12 items-start">
+        <!-- Copy -->
+        <div class="min-w-0">
+          <p class="inline-flex flex-wrap items-center gap-2 rounded-full border border-vpink/50 bg-vpink/10 px-3 py-1.5 font-hud text-[11px] sm:text-xs font-bold tracking-[0.12em] text-white">
+            <span class="relative flex h-2 w-2" aria-hidden="true"><span class="absolute inline-flex h-full w-full rounded-full bg-vpink opacity-75 motion-safe:animate-ping"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-vpink"></span></span>
+            CONSOLE EXCLUSIVE • 210GB+ INSTALL SIZE WARNING
+          </p>
+          <h1 id="hero-title" class="mt-5 font-display uppercase text-white leading-[0.95] text-[clamp(2.6rem,10.5vw,5.6rem)] drop-shadow-[0_4px_30px_rgba(255,30,116,.35)]">
+            Don't get busted with <span class="vice-text">'Storage Full'</span> on launch night.
+          </h1>
+          <p class="mt-5 text-base sm:text-lg text-zinc-300 max-w-xl leading-relaxed">
+            Find the exact official storage expansion, zero-drift controllers, and 1-click launch bundles for your console in under 30 seconds. No digging through fake Amazon listings.
+          </p>
+
+          <div class="mt-7 flex flex-col sm:flex-row gap-3">
+            <a href="#storage-test" class="inline-flex justify-center items-center min-h-[52px] px-6 rounded-xl vice-gradient text-white font-bold shadow-[0_10px_40px_-10px_rgba(255,30,116,.8)] hover:brightness-110 transition">📊 Run the 30-Sec Storage Test</a>
+            <a href="#kits" class="inline-flex justify-center items-center min-h-[52px] px-6 rounded-xl border border-line bg-white/[0.04] text-white font-bold hover:border-vpink/60 transition">⭐ Jump to 1-Click Kits</a>
+          </div>
+
+          <dl class="mt-8 grid grid-cols-3 gap-2 sm:gap-3 max-w-xl">
+            <div class="hud-card rounded-xl p-3">
+              <dt class="font-hud text-[10px] sm:text-[11px] tracking-wider text-zinc-400 uppercase">Est. Install</dt>
+              <dd class="font-hud font-bold text-lg sm:text-2xl text-white">210GB+</dd>
+            </div>
+            <div class="hud-card rounded-xl p-3">
+              <dt class="font-hud text-[10px] sm:text-[11px] tracking-wider text-zinc-400 uppercase">PS5 SSD Min</dt>
+              <dd class="font-hud font-bold text-lg sm:text-2xl text-neon">5,500<span class="text-xs"> MB/s</span></dd>
+            </div>
+            <div class="hud-card rounded-xl p-3">
+              <dt class="font-hud text-[10px] sm:text-[11px] tracking-wider text-zinc-400 uppercase">Checkout</dt>
+              <dd class="font-hud font-bold text-lg sm:text-2xl text-gold">1-Click</dd>
+            </div>
+          </dl>
+
+          <ul class="mt-6 flex flex-wrap gap-x-5 gap-y-2 font-hud text-xs text-zinc-300">
+            <li class="flex items-center gap-1.5"><span class="text-neon" aria-hidden="true">✔</span> Official Licensed Storage</li>
+            <li class="flex items-center gap-1.5"><span class="text-neon" aria-hidden="true">✔</span> Prime Eligible Picks</li>
+            <li class="flex items-center gap-1.5"><span class="text-neon" aria-hidden="true">✔</span> Direct Amazon.com Checkout</li>
+          </ul>
+          <p class="mt-3 text-[11px] text-zinc-500">Reader-supported: we may earn a commission from qualifying Amazon purchases, at no extra cost to you.</p>
+        </div>
+
+        <!-- ===== STORAGE DIAGNOSTIC WIDGET ===== -->
+        <div id="storage-test" class="hud-card rounded-2xl p-4 sm:p-6 min-w-0 shadow-[0_30px_80px_-30px_rgba(121,40,202,.6)]">
+          <div class="flex items-center justify-between gap-3">
+            <h2 class="font-hud font-bold text-sm sm:text-base tracking-[0.12em] text-white uppercase">Console Storage Diagnostic</h2>
+            <span id="diag-status" class="font-hud text-[10px] sm:text-[11px] tracking-wider px-2 py-1 rounded border border-neon/40 text-neon bg-neon/5 whitespace-nowrap">● SCAN READY</span>
+          </div>
+          <p class="mt-1 text-sm text-zinc-400">Step 1 — Tap your exact console:</p>
+
+          <div id="diag-consoles" class="mt-3 grid grid-cols-2 gap-2" role="group" aria-label="Choose your console model"></div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between gap-2">
+              <label for="diag-existing" class="text-sm text-zinc-400">Step 2 — Games already installed</label>
+              <output id="diag-existing-out" for="diag-existing" class="font-hud font-bold text-white text-sm">150GB</output>
+            </div>
+            <input id="diag-existing" type="range" min="0" max="400" step="10" value="150" class="w-full mt-2 h-8 cursor-pointer" />
+            <p class="text-[11px] text-zinc-500 -mt-1">Typical: ~150GB ≈ 3 AAA titles + apps</p>
+          </div>
+
+          <!-- Bar -->
+          <div class="mt-5">
+            <div class="flex items-end justify-between font-hud text-[11px] text-zinc-400 tracking-wider uppercase">
+              <span>Drive Map</span>
+              <span id="diag-capacity-label">— GB total</span>
+            </div>
+            <div class="relative mt-2 h-7 w-full rounded-lg overflow-hidden border border-line bg-black/50" role="img" id="diag-bar" aria-label="Select a console to see its storage map">
+              <div class="flex h-full w-full">
+                <div id="seg-os" class="bar-seg stripes bg-zinc-600" style="width:0%"></div>
+                <div id="seg-existing" class="bar-seg bg-vviolet" style="width:0%"></div>
+                <div id="seg-install" class="bar-seg vice-gradient" style="width:0%"></div>
+                <div id="seg-free" class="bar-seg bg-emerald-400" style="width:0%"></div>
+              </div>
+              <div id="diag-limit" class="hidden absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_8px_#fff]" aria-hidden="true"></div>
+            </div>
+            <ul class="mt-3 grid grid-cols-2 gap-x-3 gap-y-1.5 font-hud text-[11px] sm:text-xs">
+              <li class="flex items-center gap-2 min-w-0"><span class="h-2.5 w-2.5 rounded-sm bg-zinc-600 stripes shrink-0"></span><span class="text-zinc-400 truncate">System OS Reserved</span><b id="lg-os" class="ml-auto text-white">—</b></li>
+              <li class="flex items-center gap-2 min-w-0"><span class="h-2.5 w-2.5 rounded-sm bg-vviolet shrink-0"></span><span class="text-zinc-400 truncate">Your Games</span><b id="lg-existing" class="ml-auto text-white">—</b></li>
+              <li class="flex items-center gap-2 min-w-0"><span class="h-2.5 w-2.5 rounded-sm vice-gradient shrink-0"></span><span class="text-zinc-400 truncate">210GB+ Launch + Day-1 Patch</span><b id="lg-install" class="ml-auto text-white">—</b></li>
+              <li class="flex items-center gap-2 min-w-0"><span id="lg-free-swatch" class="h-2.5 w-2.5 rounded-sm bg-emerald-400 shrink-0"></span><span class="text-zinc-400 truncate">Remaining Free</span><b id="lg-free" class="ml-auto text-white">—</b></li>
+            </ul>
+          </div>
+
+          <!-- Verdict -->
+          <div id="diag-verdict" class="mt-5 rounded-xl border border-line bg-black/40 p-4" aria-live="polite">
+            <p class="font-hud font-bold tracking-wider text-zinc-300">▶ AWAITING CONSOLE SELECTION</p>
+            <p class="mt-1 text-sm text-zinc-400">Tap your console above to see if the 210GB+ launch install fits — and exactly what to buy if it doesn't.</p>
+          </div>
+          <p class="mt-3 text-[10px] text-zinc-500 leading-relaxed">Install size is an estimate based on current-gen open-world releases plus a typical day-one patch; the publisher has not confirmed a final figure. Usable capacity reflects system-reported free space on a fresh console.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW WE VERIFY STRIP ===== -->
+    <section aria-label="How we verify hardware" class="border-y border-line bg-hud/60">
+      <ul class="max-w-7xl mx-auto px-4 py-4 grid grid-cols-2 md:grid-cols-4 gap-3 font-hud text-xs sm:text-sm">
+        <li class="flex items-center gap-2"><span class="text-neon text-lg" aria-hidden="true">⚡</span><span><b class="text-white">Speed-Spec Checked</b><br class="sm:hidden" /><span class="text-zinc-400"> vs. Sony 5,500 MB/s</span></span></li>
+        <li class="flex items-center gap-2"><span class="text-neon text-lg" aria-hidden="true">📏</span><span><b class="text-white">Heatsink Fit</b><br class="sm:hidden" /><span class="text-zinc-400"> ≤ 11.25mm M.2 bay</span></span></li>
+        <li class="flex items-center gap-2"><span class="text-neon text-lg" aria-hidden="true">🛡️</span><span><b class="text-white">Licensing Verified</b><br class="sm:hidden" /><span class="text-zinc-400"> first-party / official</span></span></li>
+        <li class="flex items-center gap-2"><span class="text-neon text-lg" aria-hidden="true">📦</span><span><b class="text-white">Amazon.com Only</b><br class="sm:hidden" /><span class="text-zinc-400"> no sketchy sellers</span></span></li>
+      </ul>
+    </section>
+
+    <!-- ===== 3 WANTED LEVEL KITS ===== -->
+    <section id="kits" class="relative py-16 sm:py-24" aria-labelledby="kits-title">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto">
+          <p class="font-hud text-xs sm:text-sm tracking-[0.2em] text-neon uppercase">Choose Your Wanted Level</p>
+          <h2 id="kits-title" class="mt-2 font-display uppercase text-white text-[clamp(2.3rem,8vw,4.5rem)] leading-[0.95]">3 One-Click <span class="vice-text">Launch Kits</span></h2>
+          <p class="mt-4 text-zinc-300">Every kit auto-swaps to the correct storage &amp; controller for your console. Untick anything you already own — your Amazon cart updates instantly.</p>
+        </div>
+
+        <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <span class="font-hud text-xs tracking-widest text-zinc-400 uppercase">Kit variant:</span>
+          <div role="group" aria-label="Kit console variant" class="flex p-1 rounded-full border border-line bg-hud font-hud font-semibold text-sm">
+            <button type="button" class="seg-btn kit-variant rounded-full px-4 min-h-[40px] text-zinc-300 transition" data-console="ps5" aria-pressed="false">🎮 PS5 / PS5 Slim</button>
+            <button type="button" class="seg-btn kit-variant rounded-full px-4 min-h-[40px] text-zinc-300 transition" data-console="xbox" aria-pressed="false">🟢 Xbox Series X|S</button>
+          </div>
+        </div>
+        <p id="kits-note" class="mt-3 text-center text-xs text-zinc-500 font-hud"></p>
+
+        <div id="bundles-grid" class="swap-zone mt-10 grid gap-6 lg:grid-cols-3 items-start"></div>
+
+        <p class="mt-8 text-center text-[11px] text-zinc-500 max-w-2xl mx-auto">Kit totals use estimated prices; Amazon shows the live price before you check out. As an Amazon Associate we earn from qualifying purchases.</p>
+      </div>
+    </section>
+
+    <!-- ===== SECTION A: STORAGE ===== -->
+    <section id="ssd" class="py-16 sm:py-20 border-t border-line" aria-labelledby="ssd-title">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <p class="font-hud text-xs sm:text-sm tracking-[0.2em] text-neon uppercase">Section A • Mandatory Speed Spec</p>
+            <h2 id="ssd-title" class="mt-2 font-display uppercase text-white text-[clamp(2rem,7vw,3.75rem)] leading-[0.95]">Certified 210GB+ <span class="vice-text">Storage Upgrades</span></h2>
+          </div>
+          <p class="font-hud text-xs text-zinc-400" data-count-for="storage"></p>
+        </div>
+
+        <div class="mt-6 rounded-2xl border border-red-500/50 bg-gradient-to-r from-red-500/15 via-vorange/10 to-transparent p-4 sm:p-5 flex gap-4" role="note">
+          <span class="text-3xl leading-none" aria-hidden="true">⚠️</span>
+          <div>
+            <p class="font-hud font-bold tracking-wider text-white uppercase text-sm sm:text-base">Standard USB 3.0 hard drives cannot play next-gen games</p>
+            <p class="mt-1.5 text-sm text-zinc-300 leading-relaxed">PS5 and Xbox Series X|S games are engineered around ultra-fast internal NVMe storage. A regular USB external drive (~100–200 MB/s) can only <b class="text-white">cold-store</b> them — every time you want to play, you must copy the 210GB+ install back to internal storage, which takes <b class="text-white">~30 minutes</b> on a typical USB HDD. To actually play, you need a PS5-compatible M.2 NVMe SSD or the official Xbox Storage Expansion Card.</p>
+          </div>
+        </div>
+
+        <div id="grid-storage" class="swap-zone mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+        <!-- Comparison table -->
+        <div class="mt-14">
+          <h3 class="font-display uppercase text-white text-3xl sm:text-4xl">Storage Spec <span class="vice-text">Showdown</span></h3>
+          <p class="mt-2 text-sm text-zinc-400 max-w-2xl">What each storage type actually needs — and why the cheap USB drive is a trap for next-gen titles.</p>
+          <div class="table-wrapper mt-5 bg-hud/70" tabindex="0" role="region" aria-labelledby="cmp-caption">
+            <table class="cmp-table">
+              <caption id="cmp-caption">Next-gen console storage requirements compared</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Storage Type</th>
+                  <th scope="col">Interface</th>
+                  <th scope="col">Speed Requirement</th>
+                  <th scope="col">Heatsink</th>
+                  <th scope="col">Plays Next-Gen Games?</th>
+                  <th scope="col">Installation</th>
+                  <th scope="col">Our Verified Pick</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><span class="text-white">🎮 PS5 M.2 NVMe SSD</span></th>
+                  <td class="font-hud">PCIe Gen4 x4 M.2<br /><span class="text-zinc-500 text-xs">2230 / 2242 / 2260 / 2280 • 250GB–8TB</span></td>
+                  <td class="font-hud text-neon">5,500+ MB/s read</td>
+                  <td><b class="text-gold">Required</b><br /><span class="text-zinc-500 text-xs">Total height ≤ 11.25mm</span></td>
+                  <td><b class="text-emerald-400">✔ Yes</b> — full speed</td>
+                  <td>~5-min DIY, 1 screw</td>
+                  <td>WD_BLACK SN850P 2TB</td>
+                </tr>
+                <tr>
+                  <th scope="row"><span class="text-white">🟢 Xbox Expansion Card</span></th>
+                  <td class="font-hud">Proprietary rear expansion slot<br /><span class="text-zinc-500 text-xs">Xbox Velocity Architecture</span></td>
+                  <td class="font-hud text-neon">Matches internal SSD (2.4 GB/s raw)</td>
+                  <td>Built-in — none needed</td>
+                  <td><b class="text-emerald-400">✔ Yes</b> — incl. Quick Resume</td>
+                  <td>Plug-in, hot-swappable</td>
+                  <td>Seagate Storage Expansion Card</td>
+                </tr>
+                <tr class="bad">
+                  <th scope="row"><span class="text-white">🚫 Standard USB 3.0 HDD</span></th>
+                  <td class="font-hud">USB 3.0 / 3.2</td>
+                  <td class="font-hud text-red-400">~100–200 MB/s</td>
+                  <td>N/A</td>
+                  <td><b class="text-red-400">✖ No</b> — cold storage only<br /><span class="text-zinc-500 text-xs">PS4 / Xbox One games still playable</span></td>
+                  <td>Plug-in</td>
+                  <td>Archive backups only</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION B: CONTROLLERS ===== -->
+    <section id="controllers" class="py-16 sm:py-20 border-t border-line" aria-labelledby="controllers-title">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <p class="font-hud text-xs sm:text-sm tracking-[0.2em] text-neon uppercase">Section B • Hardware &amp; Input</p>
+            <h2 id="controllers-title" class="mt-2 font-display uppercase text-white text-[clamp(2rem,7vw,3.75rem)] leading-[0.95]">Next-Gen Consoles &amp; <span class="vice-text">Zero-Drift Pro Controllers</span></h2>
+          </div>
+          <p class="font-hud text-xs text-zinc-400" data-count-for="controllers"></p>
+        </div>
+        <div id="grid-controllers" class="swap-zone mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"></div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION C: IMMERSION ===== -->
+    <section id="immersion" class="relative py-16 sm:py-20 border-t border-line overflow-hidden" aria-labelledby="immersion-title">
+      <svg class="absolute -right-16 top-6 h-72 text-vpink/[0.07] pointer-events-none" viewBox="0 0 200 400" fill="currentColor" aria-hidden="true"><use href="#palm" /></svg>
+      <div class="relative max-w-7xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <p class="font-hud text-xs sm:text-sm tracking-[0.2em] text-neon uppercase">Section C • Marathon Session Extras</p>
+            <h2 id="immersion-title" class="mt-2 font-display uppercase text-white text-[clamp(2rem,7vw,3.75rem)] leading-[0.95]">Vice Immersion, <span class="vice-text">Audio &amp; Extras</span></h2>
+          </div>
+          <p class="font-hud text-xs text-zinc-400" data-count-for="immersion"></p>
+        </div>
+        <div id="grid-immersion" class="swap-zone mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="py-16 sm:py-20 border-t border-line" aria-labelledby="faq-title">
+      <div class="max-w-3xl mx-auto px-4 faq">
+        <p class="font-hud text-xs sm:text-sm tracking-[0.2em] text-neon uppercase text-center">Compatibility FAQ</p>
+        <h2 id="faq-title" class="mt-2 font-display uppercase text-white text-[clamp(2rem,7vw,3.75rem)] leading-[0.95] text-center">Questions Before <span class="vice-text">Launch Night</span></h2>
+
+        <div class="mt-8 space-y-3">
+          <details>
+            <summary>Does installing an M.2 SSD void my PS5 warranty?</summary>
+            <div class="px-5 pb-5 pl-12 text-zinc-300 leading-relaxed text-sm sm:text-base">
+              <p>No. Sony designed the PS5's M.2 expansion bay to be user-accessible and publishes an official step-by-step install guide. Installing a compatible drive the way Sony describes doesn't void your console warranty — just note that physical damage caused during installation isn't covered, so power off, unplug, and follow the guide (it's one screw on PS5 Slim, plus the side panel on the original PS5). Xbox Expansion Cards simply plug into the rear port — no opening required.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Can I run the game off an external USB drive?</summary>
+            <div class="px-5 pb-5 pl-12 text-zinc-300 leading-relaxed text-sm sm:text-base">
+              <p>Not for PS5 or Xbox Series X|S titles. Next-gen games must run from internal storage, a PS5 M.2 SSD, or an official Xbox Storage Expansion Card. A USB drive can store the game, but you'd need to copy all 210GB+ back before every session (~30 minutes on a typical HDD). USB drives are great for archiving PS4 / Xbox One games, which can still be played directly from USB.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How does the 1-Click Amazon Bundle Cart work?</summary>
+            <div class="px-5 pb-5 pl-12 text-zinc-300 leading-relaxed text-sm sm:text-base">
+              <p>When you tap "Add Selected Kit to Amazon Cart", we send only the items you left checked to Amazon's official add-to-cart page on Amazon.com. You'll see every item and its live price, and you can change quantities or remove anything before checkout. Nothing is purchased until you complete checkout on Amazon, and your payment details never touch our site. As an Amazon Associate we may earn a commission — it never changes your price.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Do I really need a heatsink on my PS5 SSD?</summary>
+            <div class="px-5 pb-5 pl-12 text-zinc-300 leading-relaxed text-sm sm:text-base">
+              <p>Yes. Sony requires a cooling structure (heatsink or heat-dissipating film) on M.2 drives used in the PS5, and the total height must stay within 11.25mm. Both our PS5 picks — the WD_BLACK SN850P and Samsung 990 PRO Heatsink edition — ship with a pre-installed, PS5-compatible heatsink. Xbox Expansion Cards are fully enclosed and need no extra cooling.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="relative py-16 border-t border-line overflow-hidden" aria-label="Final call to action">
+      <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(255,30,116,.20),transparent_65%)]" aria-hidden="true"></div>
+      <div class="max-w-3xl mx-auto px-4 text-center">
+        <p class="star-glow text-2xl tracking-[0.25em]" aria-hidden="true">★★★★★★</p>
+        <h2 class="mt-3 font-display uppercase text-white text-[clamp(2rem,8vw,4rem)] leading-[0.95]">Lock in your loadout <span class="vice-text">before the rush.</span></h2>
+        <p class="mt-4 text-zinc-300">Storage and pro controllers routinely sell out around major launches. Secure yours while stock is steady.</p>
+        <div class="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="#kits" class="inline-flex justify-center items-center min-h-[52px] px-7 rounded-xl vice-gradient text-white font-bold hover:brightness-110 transition">⭐ Pick My Launch Kit</a>
+          <a href="#storage-test" class="inline-flex justify-center items-center min-h-[52px] px-7 rounded-xl border border-line text-white font-bold hover:border-neon/60 transition">📊 Re-run Storage Test</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="border-t border-line bg-black/60">
+    <div class="max-w-7xl mx-auto px-4 py-12">
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+        <div>
+          <p class="star-glow text-xs tracking-[0.2em]" aria-hidden="true">★★★★★★</p>
+          <p class="font-display uppercase text-2xl text-white">Leonida <span class="vice-text">Loadout</span></p>
+          <p class="mt-2 text-sm text-zinc-400 max-w-sm">The #1 next-gen console hardware &amp; storage readiness hub. Independent, spec-first recommendations.</p>
+        </div>
+        <nav aria-label="Footer" class="grid grid-cols-2 gap-x-10 gap-y-2 font-hud text-sm">
+          <a class="text-zinc-400 hover:text-white py-1" href="#kits">Launch Kits</a>
+          <a class="text-zinc-400 hover:text-white py-1" href="#storage-test">Storage Test</a>
+          <a class="text-zinc-400 hover:text-white py-1" href="#ssd">SSD &amp; Expansion</a>
+          <a class="text-zinc-400 hover:text-white py-1" href="#controllers">Pro Controllers</a>
+          <a class="text-zinc-400 hover:text-white py-1" href="#immersion">Vice Immersion</a>
+          <a class="text-zinc-400 hover:text-white py-1" href="#faq">FAQ</a>
+        </nav>
+      </div>
+
+      <div class="mt-10 space-y-4 text-xs sm:text-sm leading-relaxed">
+        <p class="rounded-xl border border-gold/40 bg-gold/[0.06] p-4 text-zinc-200">
+          <b class="text-gold">Affiliate Disclosure:</b> Leonida Loadout is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.
+        </p>
+        <p class="rounded-xl border border-line p-4 text-zinc-400">
+          <b class="text-white">Independent Hardware Guide:</b> This website is an independent hardware compatibility resource and is not affiliated with, endorsed, sponsored, or approved by Rockstar Games, Take-Two Interactive, Sony Interactive Entertainment, or Microsoft Corporation.
+        </p>
+        <p class="text-zinc-500 text-xs">
+          Prices shown are estimates (last checked <span id="price-date"></span>) and are subject to change. The actual price and availability displayed on Amazon.com at the time of purchase apply. Prime eligibility depends on the seller and offer chosen on Amazon. Amazon, Amazon Prime and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates. All other product names and trademarks are the property of their respective owners and are used for identification purposes only.
+        </p>
+        <p class="text-zinc-600 text-xs font-hud">© <span id="year"></span> Leonida Loadout. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  /* =====================================================================
+   *  AFFILIATE_CONFIG — EDIT EVERYTHING IN ONE PLACE
+   * ---------------------------------------------------------------------
+   *  amazonAssociateTag : your Amazon Associates tracking ID.
+   *  pricesLastChecked  : shown in the footer next to the price disclaimer.
+   *  products           : dictionary of every individual item.
+   *     id          → must equal the dictionary key
+   *     name/brand  → display text
+   *     category    → "storage" | "controllers" | "immersion" (which section it renders in)
+   *     platform    → "ps5" | "xbox" | "both" (drives the console filter)
+   *     asin        → Amazon ASIN (10 chars) — verify on Amazon before going live
+   *     estPrice    → estimated USD price (number). priceFrom:true shows "From $X"
+   *     specBadge   → exact tech spec in the cyan HUD chip
+   *     whyBuy      → one-paragraph editorial pitch
+   *     features    → pros list (strings)
+   *     cons        → cons list (strings)
+   *     rating      → editorial "Wanted Level" 1–6 (our own score, NOT Amazon reviews)
+   *     licensed    → true = shows "Official Licensed Hardware", false = "Verified Compatible"
+   *     prime       → true = shows "Prime Eligible" chip
+   *     icon        → emoji used in the HUD tile
+   *     bundleBlurb → short line shown inside launch kits
+   *     compatNote  → optional cyan note (e.g. pick the right variant on Amazon)
+   *  bundles            : 3 launch kits. items.ps5 / items.xbox = product IDs used
+   *                       when that console is active.
+   * ===================================================================== */
+  const AFFILIATE_CONFIG = {
+    amazonAssociateTag: "leonidaloadout-20",
+    pricesLastChecked: "Nov 17, 2026",
+
+    products: {
+      /* ---------------- SECTION A: STORAGE ---------------- */
+      wd_sn850p: {
+        id: "wd_sn850p",
+        name: "WD_BLACK 2TB SN850P NVMe M.2 SSD (With Official Heatsink)",
+        brand: "Western Digital",
+        category: "storage",
+        platform: "ps5",
+        asin: "B0C4WTW6KL",
+        estPrice: 169.99,
+        specBadge: "PCIe Gen4 x4 • 7,300 MB/s Read",
+        icon: "💾",
+        rating: 6,
+        licensed: true,
+        prime: true,
+        bundleBlurb: "Officially Licensed for PS5 — room for the 210GB+ install and your whole library",
+        whyBuy: "The Officially Licensed PS5 SSD. Its factory heatsink is engineered to the exact dimensions of the PS5 M.2 bay, so it drops in within ~5 minutes with zero guesswork about clearance or cooling.",
+        features: [
+          "Officially Licensed for PlayStation 5",
+          "Pre-fitted heatsink sized for the PS5 M.2 bay",
+          "7,300 MB/s — well above Sony's 5,500 MB/s spec",
+          "Room for ~8 more 210GB-class installs"
+        ],
+        cons: [
+          "Costs a little more than unlicensed Gen4 drives",
+          "Needs a small Phillips screwdriver to install"
+        ]
+      },
+      samsung_990pro: {
+        id: "samsung_990pro",
+        name: "Samsung 990 PRO 2TB PCIe 4.0 NVMe SSD (With Heatsink)",
+        brand: "Samsung",
+        category: "storage",
+        platform: "ps5",
+        asin: "B0BHJJ9Y77",
+        estPrice: 179.99,
+        specBadge: "PCIe Gen4 x4 • 7,450 MB/s Read",
+        icon: "💾",
+        rating: 5,
+        licensed: false,
+        prime: true,
+        bundleBlurb: "One of the fastest Gen4 drives available, PS5-ready heatsink",
+        whyBuy: "One of the fastest PCIe 4.0 drives on the market, with an integrated low-profile heatsink that fits the PS5 slot. Ideal if you also want top-tier sustained speeds when moving huge installs around.",
+        features: [
+          "7,450 MB/s sequential reads",
+          "Integrated heatsink with PS5 slot clearance",
+          "5-year limited warranty from Samsung",
+          "Excellent sustained speeds for big game copies"
+        ],
+        cons: [
+          "Not officially PlayStation-licensed",
+          "Heatsink RGB lighting is hidden inside the console"
+        ]
+      },
+      seagate_xbox: {
+        id: "seagate_xbox",
+        name: "Seagate Storage Expansion Card for Xbox Series X|S (1TB / 2TB)",
+        brand: "Seagate",
+        category: "storage",
+        platform: "xbox",
+        asin: "B08K3S6WJM",
+        estPrice: 149.99,
+        priceFrom: true,
+        specBadge: "Xbox Velocity Architecture • Plug & Play",
+        icon: "🟩",
+        rating: 6,
+        licensed: true,
+        prime: true,
+        bundleBlurb: "The only official way to expand playable Xbox Series X|S storage",
+        compatNote: "Choose 1TB or 2TB on the Amazon page — 2TB recommended for 210GB+ installs.",
+        whyBuy: "The Officially Licensed expansion for Xbox Series X|S. It replicates the internal SSD exactly, so games run at identical speed with full Quick Resume support. Just plug it into the back — no tools, no opening the console.",
+        features: [
+          "Officially Licensed for Xbox Series X|S",
+          "Identical performance to the internal SSD",
+          "Full Quick Resume & Velocity Architecture support",
+          "Hot-swappable — carry your library to a friend's Xbox"
+        ],
+        cons: [
+          "Proprietary format — pricier per GB than M.2",
+          "Only works in Xbox Series X|S consoles"
+        ]
+      },
+
+      /* ---------------- SECTION B: CONSOLES & CONTROLLERS ---------------- */
+      ps5_slim: {
+        id: "ps5_slim",
+        name: "PlayStation 5 Slim Console (1TB Disc Edition)",
+        brand: "Sony",
+        category: "controllers",
+        platform: "ps5",
+        asin: "B0CL61F39H",
+        estPrice: 549.99,
+        specBadge: "1TB SSD • 4K 120Hz • 5.5 GB/s Raw I/O",
+        icon: "🕹️",
+        rating: 5,
+        licensed: true,
+        prime: true,
+        bundleBlurb: "Official Sony console with 1TB SSD and disc drive",
+        whyBuy: "Still on last-gen hardware? The PS5 Slim packs a larger 1TB SSD than the original model, a removable disc drive and a smaller footprint — plus an open M.2 slot for expansion on day one.",
+        features: [
+          "1TB internal SSD (848GB usable)",
+          "Ultra HD Blu-ray disc drive included",
+          "4K up to 120Hz with HDR & VRR",
+          "Open M.2 slot for future expansion"
+        ],
+        cons: [
+          "1TB still fills fast with 200GB+ installs",
+          "Vertical stand sold separately"
+        ]
+      },
+      dualsense_edge: {
+        id: "dualsense_edge",
+        name: "PlayStation DualSense Edge Wireless Controller",
+        brand: "Sony",
+        category: "controllers",
+        platform: "ps5",
+        asin: "B0BJM641C4",
+        estPrice: 199.99,
+        specBadge: "Swappable Stick Modules • Back Buttons • Trigger Stops",
+        icon: "🎮",
+        rating: 6,
+        licensed: true,
+        prime: true,
+        bundleBlurb: "Pro controller with replaceable stick modules — swap out drift in seconds",
+        whyBuy: "Sony's pro controller with user-replaceable stick modules, so stick drift is a 30-second swap instead of a dead controller. Back buttons let you drive, aim and shoot without leaving the sticks.",
+        features: [
+          "Replaceable stick modules beat drift",
+          "2 remappable back buttons",
+          "3-step trigger stops for faster shots",
+          "On-the-fly profile switching"
+        ],
+        cons: [
+          "Shorter battery life than a standard DualSense",
+          "Replacement stick modules sold separately"
+        ]
+      },
+      xbox_elite_core: {
+        id: "xbox_elite_core",
+        name: "Xbox Elite Wireless Controller Series 2 (Core)",
+        brand: "Microsoft",
+        category: "controllers",
+        platform: "xbox",
+        asin: "B0B789CGGQ",
+        estPrice: 139.99,
+        specBadge: "Adjustable-Tension Sticks • Up to 40-Hr Battery • Trigger Locks",
+        icon: "🎮",
+        rating: 6,
+        licensed: true,
+        prime: true,
+        bundleBlurb: "Official Xbox pro controller with adjustable-tension sticks",
+        whyBuy: "Microsoft's pro-grade controller with adjustable thumbstick tension, hair-trigger locks and a rechargeable battery that outlasts marathon sessions — at a lower price than the full Elite kit.",
+        features: [
+          "Adjustable thumbstick tension",
+          "Hair-trigger locks (3 positions)",
+          "Up to 40 hours rechargeable battery",
+          "Compatible with Elite paddles & stick sets"
+        ],
+        cons: [
+          "Core edition omits paddles & extra sticks",
+          "Charging dock sold separately"
+        ]
+      },
+      kontrolfreek: {
+        id: "kontrolfreek",
+        name: "KontrolFreek Galaxy Performance Thumbsticks",
+        brand: "KontrolFreek",
+        category: "controllers",
+        platform: "both",
+        asin: "B01BCO8GLX",
+        estPrice: 16.99,
+        specBadge: "1× High-Rise + 1× Mid-Rise • Precision Grip",
+        icon: "🎯",
+        rating: 5,
+        licensed: false,
+        prime: true,
+        bundleBlurb: "Precision driving & shooting grip — also shields sticks from wear",
+        compatNote: "Sold in PlayStation & Xbox versions — confirm the variant on Amazon.",
+        whyBuy: "Snap-on performance thumbsticks that add height and grip for finer aim and steering control. The cheapest upgrade with the most noticeable feel difference.",
+        features: [
+          "Added height = finer aim & steering",
+          "Grippy concave & convex tops",
+          "Protects original sticks from wear",
+          "Snaps on in seconds, no tools"
+        ],
+        cons: [
+          "Takes a few sessions to adjust to",
+          "Not compatible with DualSense Edge modules"
+        ]
+      },
+
+      /* ---------------- SECTION C: IMMERSION & EXTRAS ---------------- */
+      arctis_nova7: {
+        id: "arctis_nova7",
+        name: "SteelSeries Arctis Nova 7 Wireless Multi-Platform Gaming Headset",
+        brand: "SteelSeries",
+        category: "immersion",
+        platform: "both",
+        asin: "B09ZWCYQTX",
+        estPrice: 179.99,
+        specBadge: "2.4GHz + Bluetooth • 38-Hr Battery • 360° Spatial Audio",
+        icon: "🎧",
+        rating: 6,
+        licensed: false,
+        prime: true,
+        bundleBlurb: "Hear footsteps, sirens & engines in 360°",
+        compatNote: "Xbox owners: select the \"Nova 7X\" variant on Amazon for native Xbox Wireless.",
+        whyBuy: "Low-latency wireless with simultaneous Bluetooth, so you can hear every siren, footstep and engine note in 360° while taking calls from your phone. Battery outlasts any marathon session.",
+        features: [
+          "Simultaneous 2.4GHz + Bluetooth audio",
+          "Up to 38 hours of battery",
+          "360° spatial audio support",
+          "Retractable noise-cancelling mic"
+        ],
+        cons: [
+          "No active noise cancellation",
+          "Xbox requires the 7X variant"
+        ]
+      },
+      govee_t2: {
+        id: "govee_t2",
+        name: "Govee Envisual TV LED Backlight T2 with Dual Cameras",
+        brand: "Govee",
+        category: "immersion",
+        platform: "both",
+        asin: "B0B7PJ45S1",
+        estPrice: 119.99,
+        specBadge: "Dual Cameras • RGBIC • Real-Time Color Sync",
+        icon: "🌅",
+        rating: 5,
+        licensed: false,
+        prime: true,
+        bundleBlurb: "Projects Vice neon sunset colors onto your wall in real time",
+        compatNote: "Pick the size that matches your TV (55–65\" or 75–85\") on Amazon.",
+        whyBuy: "Dual cameras read the colors on screen and extend them onto your wall in real time — turning every neon sunset and police-light chase into a full-room experience. Works with any console, no HDMI box needed.",
+        features: [
+          "Dual cameras for accurate color matching",
+          "RGBIC multi-zone lighting",
+          "Works with any HDMI source",
+          "App & voice assistant control"
+        ],
+        cons: [
+          "Camera calibration takes ~5 minutes",
+          "Less accurate in very bright rooms"
+        ]
+      },
+      charging_dock: {
+        id: "charging_dock",
+        name: "Razer / Official Dual Fast Charging Stand",
+        brand: "Razer",
+        category: "immersion",
+        platform: "both",
+        asin: "B09J49GCM6",
+        estPrice: 39.99,
+        specBadge: "2-Controller Dock • Fast Charge • Drop-In Design",
+        icon: "🔋",
+        rating: 5,
+        licensed: false,
+        prime: true,
+        bundleBlurb: "Never die mid-mission — two controllers always topped up",
+        compatNote: "Sold in PS5 & Xbox versions — confirm your console variant on Amazon.",
+        whyBuy: "Drop two controllers in after a session and they're full by the next one. Frees up your console's USB ports and keeps your setup clean.",
+        features: [
+          "Charges two controllers at once",
+          "Drop-in, no cable fiddling",
+          "Frees up console USB ports",
+          "Compact footprint"
+        ],
+        cons: [
+          "Needs a wall or console USB power source",
+          "Platform-specific — pick the right version"
+        ]
+      },
+      ugreen_hdmi: {
+        id: "ugreen_hdmi",
+        name: "UGREEN 8K Certified HDMI 2.1 Braided Cable (10ft)",
+        brand: "UGREEN",
+        category: "immersion",
+        platform: "both",
+        asin: "B08TM8TW1R",
+        estPrice: 15.99,
+        specBadge: "48Gbps • 4K 120Hz • VRR & HDR",
+        icon: "🔌",
+        rating: 5,
+        licensed: false,
+        prime: true,
+        bundleBlurb: "Certified 48Gbps for 4K 120Hz, VRR & HDR — 10ft reach",
+        whyBuy: "A certified 48Gbps HDMI 2.1 cable guarantees the full 4K 120Hz + VRR signal reaches your TV. The braided 10ft length reaches couches and wall mounts the stock cable can't.",
+        features: [
+          "Certified Ultra High Speed 48Gbps",
+          "4K 120Hz, VRR & ALLM support",
+          "Durable nylon-braided jacket",
+          "10ft reach for wall-mounted TVs"
+        ],
+        cons: [
+          "Thicker & stiffer than basic cables",
+          "Only matters if your TV supports HDMI 2.1"
+        ]
+      }
+    },
+
+    /* ---------------- 3 WANTED-LEVEL LAUNCH KITS ----------------
+       items.ps5  → product IDs used when PS5 is active
+       items.xbox → product IDs used when Xbox Series X|S is active  */
+    bundles: [
+      {
+        id: "tier1",
+        name: "4-Star Street Survival Kit",
+        stars: 4,
+        tagline: "The Storage & Grip Essential",
+        badge: "ESSENTIAL UPGRADE",
+        featured: false,
+        items: {
+          ps5:  ["wd_sn850p", "kontrolfreek", "ugreen_hdmi"],
+          xbox: ["seagate_xbox", "kontrolfreek", "ugreen_hdmi"]
+        }
+      },
+      {
+        id: "tier2",
+        name: "5-Star Vice Heist Rig",
+        stars: 5,
+        tagline: "Most Popular Complete Kit",
+        badge: "🔥 MOST POPULAR • BEST VALUE",
+        featured: true,
+        items: {
+          ps5:  ["wd_sn850p", "arctis_nova7", "charging_dock", "kontrolfreek"],
+          xbox: ["seagate_xbox", "arctis_nova7", "charging_dock", "kontrolfreek"]
+        }
+      },
+      {
+        id: "tier3",
+        name: "6-Star Leonida Kingpin Setup",
+        stars: 6,
+        tagline: "Ultimate Pro Immersion",
+        badge: "MAX WANTED LEVEL • PRO GRADE",
+        featured: false,
+        items: {
+          ps5:  ["wd_sn850p", "dualsense_edge", "arctis_nova7", "govee_t2", "charging_dock"],
+          xbox: ["seagate_xbox", "xbox_elite_core", "arctis_nova7", "govee_t2", "charging_dock"]
+        }
+      }
+    ]
+  };
+
+  /* =====================================================================
+   *  AFFILIATE URL HELPERS
+   * ===================================================================== */
+
+  /** 1) Single product: https://www.amazon.com/dp/{ASIN}?tag={amazonAssociateTag} */
+  function buildAmazonProductUrl(asin) {
+    return `https://www.amazon.com/dp/${encodeURIComponent(asin)}?tag=${encodeURIComponent(AFFILIATE_CONFIG.amazonAssociateTag)}`;
+  }
+
+  /** 2) Multi-item 1-Click cart:
+   *  https://www.amazon.com/gp/aws/cart/add.html?AssociateTag={tag}&ASIN.1={A1}&Quantity.1=1&ASIN.2=... */
+  function buildAmazonCartUrl(asins) {
+    const params = [`AssociateTag=${encodeURIComponent(AFFILIATE_CONFIG.amazonAssociateTag)}`];
+    asins.forEach((asin, i) => {
+      params.push(`ASIN.${i + 1}=${encodeURIComponent(asin)}`, `Quantity.${i + 1}=1`);
+    });
+    return `https://www.amazon.com/gp/aws/cart/add.html?${params.join("&")}`;
+  }
+
+  /* =====================================================================
+   *  STORAGE DIAGNOSTIC CONFIG (GB, marketing capacity vs. usable)
+   * ===================================================================== */
+  const STORAGE_DIAGNOSTIC = {
+    launchInstallGB: 210,     // estimated base install
+    day1PatchGB: 25,          // estimated day-one patch
+    thresholds: { criticalBelowGB: 300, warningBelowGB: 550 },
+    consoles: {
+      ps5_original: { label: "Original PS5", capacityLabel: "825GB", platform: "ps5",  capacityGB: 825,  osReservedGB: 158, ssdProductId: "wd_sn850p" },
+      ps5_slim:     { label: "PS5 Slim",     capacityLabel: "1TB",   platform: "ps5",  capacityGB: 1000, osReservedGB: 152, ssdProductId: "wd_sn850p" },
+      xbox_s:       { label: "Xbox Series S", capacityLabel: "512GB", platform: "xbox", capacityGB: 512,  osReservedGB: 148, ssdProductId: "seagate_xbox" },
+      xbox_x:       { label: "Xbox Series X", capacityLabel: "1TB",   platform: "xbox", capacityGB: 1000, osReservedGB: 198, ssdProductId: "seagate_xbox" }
+    }
+  };
+
+  /* =====================================================================
+   *  APP
+   * ===================================================================== */
+  const P = AFFILIATE_CONFIG.products;
+  const AMAZON_REL = 'target="_blank" rel="nofollow sponsored noopener"';
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const money = (n) => "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  const state = {
+    console: "all",          // "ps5" | "xbox" | "all"
+    kitConsole: "ps5",       // last concrete console, used for kits in "all" mode
+    deselected: {},          // { tier1: Set(productIds) }
+    diagConsole: null,
+    existingGB: 150
+  };
+  AFFILIATE_CONFIG.bundles.forEach((b) => (state.deselected[b.id] = new Set()));
+
+  /** Optional analytics hook (Vercel Analytics / GA4 if present) */
+  function track(name, props = {}) {
+    try {
+      if (typeof window.va === "function") window.va("event", { name, data: props });
+      if (typeof window.gtag === "function") window.gtag("event", name, props);
+    } catch (_) { /* no-op */ }
+  }
+
+  function starsHTML(n, total = 6, size = "") {
+    return `<span class="${size} tracking-[0.12em]" role="img" aria-label="${n} of ${total} wanted stars"><span class="star-glow">${"★".repeat(n)}</span><span class="text-white/15">${"★".repeat(total - n)}</span></span>`;
+  }
+
+  function platformChip(platform) {
+    const map = {
+      ps5:  ['PS5', 'border-blue-500/40 text-blue-300 bg-blue-500/10'],
+      xbox: ['XBOX SERIES X|S', 'border-emerald-500/40 text-emerald-300 bg-emerald-500/10'],
+      both: ['PS5 + XBOX', 'border-white/20 text-zinc-300 bg-white/5']
+    };
+    const [label, cls] = map[platform];
+    return `<span class="font-hud text-[10px] font-bold tracking-wider px-2 py-0.5 rounded border ${cls}">${label}</span>`;
+  }
+
+  function trustRow(p) {
+    const items = [
+      p.licensed ? "🛡️ Official Licensed Hardware" : "✔ Verified Compatible",
+      p.prime ? "⚡ Prime Eligible" : null,
+      "📦 Direct Amazon.com Checkout"
+    ].filter(Boolean);
+    return `<ul class="flex flex-wrap gap-1.5">${items.map((t) => `<li class="font-hud text-[10px] text-zinc-300 px-2 py-1 rounded bg-white/[0.04] border border-line">${t}</li>`).join("")}</ul>`;
+  }
+
+  function priceLabel(p) {
+    return `${p.priceFrom ? '<span class="text-xs text-zinc-400 font-body">From </span>' : ""}${money(p.estPrice)}`;
+  }
+
+  function isVisibleFor(platform, consoleSel) {
+    return consoleSel === "all" || platform === "both" || platform === consoleSel;
+  }
+
+  /* ---------------- Product cards ---------------- */
+  function productCardHTML(p) {
+    return `
+    <article id="product-${p.id}" data-platform="${p.platform}" class="product-card hud-card rounded-2xl p-5 flex flex-col gap-4 min-w-0 hover:border-vpink/50 transition">
+      <div class="flex items-start gap-3">
+        <div class="h-14 w-14 shrink-0 rounded-xl grid place-items-center text-2xl bg-gradient-to-br from-vpink/25 via-vorange/15 to-vviolet/25 border border-line" aria-hidden="true">${p.icon}</div>
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="font-hud text-[11px] tracking-widest text-zinc-400 uppercase">${esc(p.brand)}</span>
+            ${platformChip(p.platform)}
+          </div>
+          <h3 class="mt-1 font-bold text-white leading-snug">${esc(p.name)}</h3>
+        </div>
+      </div>
+      <p class="spec-chip self-start text-[11px] font-semibold rounded px-2 py-1">⚡ ${esc(p.specBadge)}</p>
+      <div class="flex items-center gap-2 text-sm">${starsHTML(p.rating)}<span class="font-hud text-[10px] text-zinc-500 uppercase tracking-wider">Editor's Wanted Level</span></div>
+      <p class="text-sm text-zinc-300 leading-relaxed">${esc(p.whyBuy)}</p>
+      ${p.compatNote ? `<p class="text-xs text-neon/90 border-l-2 border-neon/60 pl-2">ℹ ${esc(p.compatNote)}</p>` : ""}
+      <div class="grid gap-3 text-sm">
+        <ul class="space-y-1" aria-label="Pros">${p.features.map((f) => `<li class="flex gap-2"><span class="text-emerald-400 shrink-0" aria-hidden="true">✔</span><span class="text-zinc-300">${esc(f)}</span></li>`).join("")}</ul>
+        <ul class="space-y-1" aria-label="Cons">${p.cons.map((c) => `<li class="flex gap-2"><span class="text-red-400 shrink-0" aria-hidden="true">✖</span><span class="text-zinc-400">${esc(c)}</span></li>`).join("")}</ul>
+      </div>
+      ${trustRow(p)}
+      <div class="mt-auto pt-3 border-t border-line flex items-center justify-between gap-3">
+        <div>
+          <p class="font-hud text-[10px] tracking-wider text-zinc-500 uppercase">Est. Price</p>
+          <p class="font-hud font-bold text-xl text-white">${priceLabel(p)}</p>
+        </div>
+        <a href="${buildAmazonProductUrl(p.asin)}" ${AMAZON_REL} data-track="product_click" data-id="${p.id}"
+           class="inline-flex items-center justify-center min-h-[48px] px-4 rounded-xl vice-gradient text-white text-sm font-bold whitespace-nowrap hover:brightness-110 transition">
+          Check Price on Amazon →
+        </a>
+      </div>
+    </article>`;
+  }
+
+  function renderProducts() {
+    ["storage", "controllers", "immersion"].forEach((cat) => {
+      const grid = $(`#grid-${cat}`);
+      grid.innerHTML = Object.values(P).filter((p) => p.category === cat).map(productCardHTML).join("");
+    });
+  }
+
+  function applyProductFilter() {
+    const labels = { ps5: "PS5", xbox: "Xbox Series X|S", all: "all consoles" };
+    ["storage", "controllers", "immersion"].forEach((cat) => {
+      const cards = $$(`#grid-${cat} .product-card`);
+      let shown = 0;
+      cards.forEach((card) => {
+        const vis = isVisibleFor(card.dataset.platform, state.console);
+        card.hidden = !vis;
+        if (vis) shown++;
+      });
+      const counter = $(`[data-count-for="${cat}"]`);
+      if (counter) counter.textContent = `Showing ${shown} of ${cards.length} • Filtered for ${labels[state.console]}`;
+    });
+  }
+
+  /* ---------------- Bundles ---------------- */
+  function bundleItemsFor(bundle) {
+    return bundle.items[state.kitConsole].map((id) => P[id]).filter(Boolean);
+  }
+
+  function bundleCardHTML(b) {
+    const items = bundleItemsFor(b);
+    const cardCls = b.featured ? "vice-border lg:-mt-4" : "hud-card";
+    const badgeCls = b.featured ? "vice-gradient text-white" : (b.stars === 6 ? "bg-gold/15 text-gold border border-gold/50" : "bg-neon/10 text-neon border border-neon/40");
+    return `
+    <article class="bundle-card relative rounded-2xl p-5 sm:p-6 flex flex-col min-w-0 ${cardCls}" data-bundle="${b.id}" aria-labelledby="${b.id}-name">
+      <p class="self-start font-hud text-[11px] font-bold tracking-[0.12em] px-2.5 py-1 rounded-md ${badgeCls}">${esc(b.badge)}</p>
+      <div class="mt-4 text-2xl sm:text-3xl">${starsHTML(b.stars)}</div>
+      <h3 id="${b.id}-name" class="mt-2 font-display uppercase text-white text-3xl leading-none">${esc(b.name)}</h3>
+      <p class="mt-1 text-sm text-zinc-400 italic">${esc(b.tagline)}</p>
+
+      <fieldset class="mt-5">
+        <legend class="font-hud text-[11px] tracking-widest text-zinc-500 uppercase mb-2">Included — untick what you own</legend>
+        <ul class="space-y-2">
+          ${items.map((p) => {
+            const checked = !state.deselected[b.id].has(p.id);
+            const inputId = `${b.id}-${p.id}`;
+            return `
+            <li>
+              <label for="${inputId}" class="flex items-start gap-3 rounded-xl border border-line bg-black/30 p-3 cursor-pointer hover:border-vpink/50 transition has-[:checked]:bg-white/[0.04] min-h-[56px]">
+                <input id="${inputId}" type="checkbox" class="kit-check mt-0.5" data-bundle="${b.id}" data-id="${p.id}" ${checked ? "checked" : ""} />
+                <span class="min-w-0 flex-1">
+                  <span class="block text-sm font-semibold text-white leading-snug">${esc(p.name)}</span>
+                  <span class="block text-xs text-zinc-400 mt-0.5">${esc(p.bundleBlurb)}</span>
+                  <span class="block font-hud text-[10px] text-neon mt-1">${esc(p.specBadge)}</span>
+                  ${p.compatNote ? `<span class="block text-[10px] text-zinc-500 mt-0.5">ℹ ${esc(p.compatNote)}</span>` : ""}
+                </span>
+                <span class="font-hud font-bold text-sm text-white whitespace-nowrap">${p.priceFrom ? '<span class="text-[10px] text-zinc-400">from </span>' : ""}${money(p.estPrice)}</span>
+              </label>
+            </li>`;
+          }).join("")}
+        </ul>
+      </fieldset>
+
+      <div class="mt-5 rounded-xl border border-line bg-black/40 p-4 flex items-end justify-between gap-3">
+        <div>
+          <p class="font-hud text-[10px] tracking-widest text-zinc-500 uppercase">Selected Items</p>
+          <p class="font-hud font-bold text-white text-lg" data-role="count">0 / 0</p>
+        </div>
+        <div class="text-right">
+          <p class="font-hud text-[10px] tracking-widest text-zinc-500 uppercase">Estimated Kit Total</p>
+          <p class="font-hud font-bold text-2xl sm:text-3xl ${b.featured ? "vice-text" : "text-gold"}" data-role="total" aria-live="polite">$0.00</p>
+        </div>
+      </div>
+
+      <a data-role="cta" ${AMAZON_REL} data-track="bundle_click" data-id="${b.id}"
+         class="mt-4 inline-flex items-center justify-center text-center min-h-[56px] px-5 rounded-xl font-bold text-white transition ${b.featured ? "vice-gradient shadow-[0_12px_40px_-10px_rgba(255,30,116,.9)]" : "bg-white/[0.06] border border-vpink/60 hover:bg-vpink/20"}">
+        Add Selected Kit to Amazon Cart (1-Click) →
+      </a>
+      <p class="mt-3 text-center text-[11px] text-zinc-400">🔒 Opens official Amazon.com cart — review or remove items anytime before checkout.</p>
+    </article>`;
+  }
+
+  function updateBundleSummary(bundleId) {
+    const b = AFFILIATE_CONFIG.bundles.find((x) => x.id === bundleId);
+    const card = $(`.bundle-card[data-bundle="${bundleId}"]`);
+    if (!b || !card) return;
+    const items = bundleItemsFor(b);
+    const selected = items.filter((p) => !state.deselected[b.id].has(p.id));
+    const total = selected.reduce((s, p) => s + p.estPrice, 0);
+
+    $('[data-role="count"]', card).textContent = `${selected.length} / ${items.length}`;
+    $('[data-role="total"]', card).textContent = money(total);
+
+    const cta = $('[data-role="cta"]', card);
+    if (selected.length) {
+      cta.href = buildAmazonCartUrl(selected.map((p) => p.asin));
+      cta.removeAttribute("aria-disabled");
+      cta.classList.remove("opacity-40", "pointer-events-none");
+      cta.textContent = "Add Selected Kit to Amazon Cart (1-Click) →";
+    } else {
+      cta.removeAttribute("href");
+      cta.setAttribute("aria-disabled", "true");
+      cta.classList.add("opacity-40", "pointer-events-none");
+      cta.textContent = "Select at least 1 item";
+    }
+  }
+
+  function renderBundles() {
+    $("#bundles-grid").innerHTML = AFFILIATE_CONFIG.bundles.map(bundleCardHTML).join("");
+    AFFILIATE_CONFIG.bundles.forEach((b) => updateBundleSummary(b.id));
+    const note = $("#kits-note");
+    note.textContent = state.console === "all"
+      ? `Showing ${state.kitConsole === "ps5" ? "PS5" : "Xbox Series X|S"} kit variants — switch above to see the other console.`
+      : `Kits auto-matched to your ${state.console === "ps5" ? "PS5 / PS5 Slim" : "Xbox Series X|S"}.`;
+  }
+
+  /* ---------------- Console switching ---------------- */
+  function syncToggleUI() {
+    $$("header .seg-btn").forEach((btn) => btn.setAttribute("aria-pressed", String(btn.dataset.console === state.console)));
+    $$(".kit-variant").forEach((btn) => btn.setAttribute("aria-pressed", String(btn.dataset.console === state.kitConsole)));
+  }
+
+  function setConsole(value, { animate = true, source = "toggle" } = {}) {
+    if (!["ps5", "xbox", "all"].includes(value)) value = "all";
+    state.console = value;
+    if (value !== "all") state.kitConsole = value;
+    syncToggleUI();
+
+    try { localStorage.setItem("ll_console", value); } catch (_) {}
+    const url = new URL(location.href);
+    url.searchParams.set("console", value);
+    history.replaceState(null, "", url);
+
+    const zones = $$(".swap-zone");
+    const apply = () => { renderBundles(); applyProductFilter(); zones.forEach((z) => z.classList.remove("is-switching")); };
+    if (animate && !reduceMotion) {
+      zones.forEach((z) => z.classList.add("is-switching"));
+      setTimeout(apply, 180);
+    } else apply();
+    track("console_switch", { console: value, source });
+  }
+
+  /* ---------------- Storage diagnostic ---------------- */
+  function renderDiagButtons() {
+    $("#diag-consoles").innerHTML = Object.entries(STORAGE_DIAGNOSTIC.consoles).map(([key, c]) => `
+      <button type="button" data-diag="${key}" aria-pressed="false"
+        class="diag-btn text-left rounded-xl border border-line bg-black/30 p-3 min-h-[64px] hover:border-vpink/60 transition aria-pressed:border-vpink aria-pressed:bg-vpink/10 aria-pressed:shadow-[0_0_20px_-6px_rgba(255,30,116,.7)]">
+        <span class="block text-sm font-bold text-white">${c.label}</span>
+        <span class="block font-hud text-xs text-neon">${c.capacityLabel} SSD</span>
+      </button>`).join("");
+  }
+
+  function animateNumber(el, to, suffix = "GB") {
+    const from = parseFloat(el.dataset.val || "0");
+    el.dataset.val = to;
+    if (reduceMotion) { el.textContent = `${Math.round(to)}${suffix}`; return; }
+    const start = performance.now(), dur = 700;
+    const step = (t) => {
+      const k = Math.min(1, (t - start) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = `${Math.round(from + (to - from) * e)}${suffix}`;
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  function runDiagnostic() {
+    const key = state.diagConsole;
+    if (!key) return;
+    const c = STORAGE_DIAGNOSTIC.consoles[key];
+    const install = STORAGE_DIAGNOSTIC.launchInstallGB + STORAGE_DIAGNOSTIC.day1PatchGB;
+    const existing = state.existingGB;
+    const used = c.osReservedGB + existing + install;
+    const free = c.capacityGB - used;
+    const scale = Math.max(c.capacityGB, used);
+    const pct = (v) => (Math.max(0, v) / scale) * 100;
+    const { criticalBelowGB, warningBelowGB } = STORAGE_DIAGNOSTIC.thresholds;
+
+    const level = free < 0 ? "overflow" : free < criticalBelowGB ? "critical" : free < warningBelowGB ? "warning" : "ok";
+    const freeColor = { overflow: "bg-red-500", critical: "bg-red-500", warning: "bg-gold", ok: "bg-emerald-400" }[level];
+
+    $("#seg-os").style.width = pct(c.osReservedGB) + "%";
+    $("#seg-existing").style.width = pct(existing) + "%";
+    const segInstall = $("#seg-install");
+    segInstall.style.width = pct(install) + "%";
+    segInstall.classList.toggle("overflow-stripes", level === "overflow");
+    segInstall.classList.toggle("vice-gradient", level !== "overflow");
+    const segFree = $("#seg-free");
+    segFree.className = `bar-seg ${freeColor}`;
+    segFree.style.width = pct(free) + "%";
+    $("#lg-free-swatch").className = `h-2.5 w-2.5 rounded-sm shrink-0 ${freeColor}`;
+
+    const limit = $("#diag-limit");
+    limit.hidden = level !== "overflow";
+    limit.classList.toggle("hidden", level !== "overflow");
+    limit.style.left = `calc(${(c.capacityGB / scale) * 100}% - 1px)`;
+
+    $("#diag-capacity-label").textContent = `${c.capacityLabel} total`;
+    animateNumber($("#lg-os"), c.osReservedGB);
+    animateNumber($("#lg-existing"), existing);
+    animateNumber($("#lg-install"), install);
+    const lgFree = $("#lg-free");
+    animateNumber(lgFree, Math.max(0, free));
+    lgFree.className = `ml-auto ${level === "ok" ? "text-emerald-400" : level === "warning" ? "text-gold" : "text-red-400"}`;
+
+    $("#diag-bar").setAttribute("aria-label",
+      `${c.label}: ${c.osReservedGB}GB system, ${existing}GB your games, ${install}GB launch install, ${free < 0 ? Math.abs(free) + "GB over capacity" : free + "GB free"}`);
+
+    const status = $("#diag-status");
+    const statusMap = {
+      overflow: ["● CRITICAL • WON'T FIT", "border-red-500/60 text-red-400 bg-red-500/10"],
+      critical: ["● CRITICAL", "border-red-500/60 text-red-400 bg-red-500/10"],
+      warning:  ["● TIGHT FIT", "border-gold/60 text-gold bg-gold/10"],
+      ok:       ["● READY", "border-emerald-400/60 text-emerald-400 bg-emerald-400/10"]
+    };
+    status.textContent = statusMap[level][0];
+    status.className = `font-hud text-[10px] sm:text-[11px] tracking-wider px-2 py-1 rounded border whitespace-nowrap ${statusMap[level][1]}`;
+
+    const ssd = P[c.ssdProductId];
+    const copy = {
+      overflow: ["❌ WON'T FIT — BUSTED", `You're <b class="text-white">${Math.abs(free)}GB short</b>. Your ${c.label} can't hold the launch build alongside your current library. A 2TB expansion is mandatory before launch night.`, "border-red-500/60 bg-red-500/10", "text-red-400"],
+      critical: ["🚨 CRITICAL — DANGER ZONE", `Only <b class="text-white">${free}GB left</b> after install. One post-launch patch or DLC drop and you'll be deleting games. Add 2TB of official high-speed storage now.`, "border-red-500/60 bg-red-500/10", "text-red-400"],
+      warning:  ["⚠ TIGHT FIT — HEAT RISING", `It fits with <b class="text-white">${free}GB left</b>, but open-world updates often add 20–50GB each. A 2TB expansion keeps your whole library installed.`, "border-gold/60 bg-gold/10", "text-gold"],
+      ok:       ["✅ CLEAR — YOU'RE LAUNCH READY", `<b class="text-white">${free}GB free</b> after install. Storage is covered — level up your grip, audio and immersion instead.`, "border-emerald-400/50 bg-emerald-400/10", "text-emerald-400"]
+    }[level];
+
+    const primaryCta = level === "ok"
+      ? `<a href="#kits" class="inline-flex justify-center items-center min-h-[48px] px-4 rounded-xl vice-gradient text-white text-sm font-bold">⭐ See 1-Click Launch Kits →</a>`
+      : `<a href="#product-${ssd.id}" data-jump="${ssd.id}" class="inline-flex justify-center items-center min-h-[48px] px-4 rounded-xl vice-gradient text-white text-sm font-bold text-center">💾 Get the ${esc(ssd.brand)} 2TB Fix →</a>`;
+    const secondaryCta = level === "ok"
+      ? `<a href="#immersion" class="inline-flex justify-center items-center min-h-[48px] px-4 rounded-xl border border-line text-white text-sm font-bold">🌴 Vice Immersion Gear</a>`
+      : `<a href="#kits" class="inline-flex justify-center items-center min-h-[48px] px-4 rounded-xl border border-line text-white text-sm font-bold">⭐ Bundle It in a Launch Kit</a>`;
+
+    const v = $("#diag-verdict");
+    v.className = `mt-5 rounded-xl border p-4 ${copy[2]}`;
+    v.innerHTML = `
+      <p class="font-hud font-bold tracking-wider ${copy[3]}">${copy[0]}</p>
+      <p class="mt-1 text-sm text-zinc-300">${copy[1]}</p>
+      <div class="mt-3 grid sm:grid-cols-2 gap-2">${primaryCta}${secondaryCta}</div>`;
+    track("diagnostic_run", { console: key, level, free });
+  }
+
+  function jumpToProduct(id) {
+    const card = $(`#product-${id}`);
+    if (!card) return;
+    card.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    card.classList.remove("flash-ring");
+    void card.offsetWidth;
+    card.classList.add("flash-ring");
+  }
+
+  /* ---------------- Active section highlight ---------------- */
+  function initScrollSpy() {
+    const links = $$(".cat-link");
+    const map = new Map(links.map((a) => [a.getAttribute("href").slice(1), a]));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((l) => l.removeAttribute("aria-current"));
+        const link = map.get(e.target.id);
+        if (link) {
+          link.setAttribute("aria-current", "true");
+          link.scrollIntoView({ block: "nearest", inline: "center", behavior: reduceMotion ? "auto" : "smooth" });
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    map.forEach((_, id) => { const el = document.getElementById(id); if (el) io.observe(el); });
+  }
+
+  /* ---------------- Init ---------------- */
+  function init() {
+    $("#year").textContent = new Date().getFullYear();
+    $("#price-date").textContent = AFFILIATE_CONFIG.pricesLastChecked;
+
+    renderProducts();
+    renderDiagButtons();
+
+    // Initial console: ?console= URL param > saved preference > "all"
+    let initial = new URLSearchParams(location.search).get("console");
+    if (!initial) { try { initial = localStorage.getItem("ll_console"); } catch (_) {} }
+    setConsole(initial || "all", { animate: false, source: "init" });
+
+    // Header + kit variant toggles
+    $$(".seg-btn").forEach((btn) => btn.addEventListener("click", () => setConsole(btn.dataset.console, { source: btn.classList.contains("kit-variant") ? "kits" : "header" })));
+
+    // Bundle checkboxes (delegated)
+    $("#bundles-grid").addEventListener("change", (e) => {
+      const cb = e.target.closest(".kit-check");
+      if (!cb) return;
+      const set = state.deselected[cb.dataset.bundle];
+      cb.checked ? set.delete(cb.dataset.id) : set.add(cb.dataset.id);
+      updateBundleSummary(cb.dataset.bundle);
+      track("bundle_item_toggle", { bundle: cb.dataset.bundle, item: cb.dataset.id, checked: cb.checked });
+    });
+
+    // Diagnostic console buttons
+    $("#diag-consoles").addEventListener("click", (e) => {
+      const btn = e.target.closest(".diag-btn");
+      if (!btn) return;
+      state.diagConsole = btn.dataset.diag;
+      $$(".diag-btn").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      const platform = STORAGE_DIAGNOSTIC.consoles[state.diagConsole].platform;
+      if (state.console !== platform) setConsole(platform, { source: "diagnostic" });
+      runDiagnostic();
+    });
+
+    // Existing games slider
+    const slider = $("#diag-existing");
+    slider.addEventListener("input", () => {
+      state.existingGB = Number(slider.value);
+      $("#diag-existing-out").textContent = `${state.existingGB}GB`;
+      runDiagnostic();
+    });
+
+    // Verdict "jump to SSD" buttons
+    document.addEventListener("click", (e) => {
+      const jump = e.target.closest("[data-jump]");
+      if (jump) { e.preventDefault(); jumpToProduct(jump.dataset.jump); }
+      const tracked = e.target.closest("[data-track]");
+      if (tracked) track(tracked.dataset.track, { id: tracked.dataset.id, console: state.console });
+    });
+
+    initScrollSpy();
+  }
+
+  document.addEventListener("DOMContentLoaded", init);
+  </script>
+</body>
+</html>
